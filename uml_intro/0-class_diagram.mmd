@@ -1,0 +1,31 @@
+classDiagram
+direction TB
+    class Library {
+	    +add_book()
+	    +register_user()
+    }
+
+    class Loan {
+	    +int start_date
+	    +int end_date
+	    +close_loan()
+    }
+
+    class Book {
+	    +str title
+	    +str author
+	    +boolean state
+	    +mark_as_unavailable()
+	    +mark_as_available()
+    }
+
+    class User {
+	    +str name
+	    +str email
+	    +create_loan()
+    }
+
+    Library "1" o-- "1..*" Book
+    Library --> User
+    User --* Loan
+    Book --* Loan
